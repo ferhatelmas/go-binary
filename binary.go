@@ -194,7 +194,7 @@ var extensions = []string{
 	"zipx",
 }
 
-// Extensions is the extensions for different archive types
+// Extensions is the extensions for different binary types
 var Extensions map[string]bool
 
 func init() {
@@ -204,7 +204,7 @@ func init() {
 	}
 }
 
-// Is checks if a path is an archive
+// Is checks if a path is a binary
 func Is(p string) bool {
 	ext := strings.TrimLeft(path.Ext(p), ".")
 	return Extensions[strings.ToLower(ext)]

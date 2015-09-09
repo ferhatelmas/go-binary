@@ -3,9 +3,10 @@
 package binary
 
 import (
-	"github.com/shamsher31/gobinext"
 	"path"
 	"strings"
+
+	"github.com/shamsher31/gobinext"
 )
 
 var extensions = binext.Get()

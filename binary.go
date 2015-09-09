@@ -17,7 +17,7 @@ var Extensions map[string]bool
 func init() {
 	Extensions = map[string]bool{}
 	for _, ext := range extensions {
-		Extensions[ext] = true
+		Extensions[strings.ToLower(ext)] = true
 	}
 }
 

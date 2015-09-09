@@ -1,6 +1,11 @@
 package binary
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+
+	"github.com/shamsher31/gobinext"
+)
 
 func TestExtension(t *testing.T) {
 	curLen := 184
@@ -10,19 +15,9 @@ func TestExtension(t *testing.T) {
 }
 
 func TestIs(t *testing.T) {
-	if Is("a/b/c/bar.css") {
-		t.Fatal("Wrong detection. Must not be binary")
-	}
-
-	if !Is("a/b/c/bar.exe") {
-		t.Fatal("Wrong detection. Must be binary")
-	}
-
-	if !Is("a/b/c/bar.a") {
-		t.Fatal("Wrong detection. Must be binary")
-	}
-
-	if Is("a/b/c/7z") {
-		t.Fatal("Wrong detection. Must not be binary")
+	for _, ext := range binext.Get() {
+		if !Is(fmt.Sprintf(`a/b/c/foo.bar.%s`, ext)) {
+			t.Fatal("Wrong detection. Expected to be binary", ext)
+		}
 	}
 }
